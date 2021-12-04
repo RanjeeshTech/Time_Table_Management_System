@@ -1,0 +1,262 @@
+:root {
+    --darkPurple: #94ACFF;
+    --gray: rgba(0, 0, 0, 0.41);
+    --yellow: #FFDD9F;
+    --darkYellow: rgba(255, 186, 58, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'sans-serif';
+}
+
+body {
+    background: linear-gradient(107.66deg, #FFFCF6 0%, #FFFFFF 100.55%);
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: 225px;
+    top: -245px;
+    background: var(--darkPurple);
+    filter: blur(100px);
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    width: 183px;
+    height: 176px;
+    left: -111px;
+    bottom: -80px;
+    background: var(--yellow);
+    filter: blur(100px);
+}
+
+.container {
+    min-height: 100vh;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    right: -260px;
+    top: 409px;
+    background: var(--yellow);
+    filter: blur(100px);
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    right: 100px;
+    bottom: -300px;
+    background: var(--darkPurple);
+    filter: blur(100px);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 80px;
+    border-bottom: 2px solid #000;
+    min-height: 10vh;
+}
+
+.header .logo h4 {
+    font-size: 1.7rem;
+}
+
+.header .nav-section a {
+    margin: 20px;
+    text-decoration: none;
+    color: #000;
+    position: relative;
+}
+
+.header .nav-section button {
+    background-color: var(--darkYellow);
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0px 0px 20px var(--darkYellow);
+    filter: drop-shadow(var(--darkYellow));
+    padding: 5px 20px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.container .login-section {
+    display: flex;
+    align-items: center;
+    min-height: 90vh;
+}
+
+.container .login-section>div {
+    display: flex;
+    padding: 0px 100px;
+}
+
+.container .login-section .content {
+    width: 60%;
+}
+
+.container .login-section .login-card {
+    width: 40%;
+}
+
+.container .login-section div:nth-child(1) {
+    flex-direction: column;
+}
+
+.container .login-section div:nth-child(2) {
+    justify-content: center;
+}
+
+.login-card .card {
+    background: linear-gradient(152.04deg, #B7C7FF 0%, #FFFFFF 22.19%, #FFFFFF 34.43%, #FFFFFF 45.72%, #FFFFFF 56.46%, #FFFFFF 68.28%, #FFFFFF 80.52%, #FFDD9F 100%);
+    box-shadow: 0px 0px 50px #B7C7FF;
+    border-radius: 6px;
+    padding: 36px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.2px solid #000;
+}
+
+.login-card .card input {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    position: relative;
+    outline: none;
+    background-color: inherit;
+}
+
+.signup-button {
+    padding-top: 50px;
+}
+
+.signup-button button {
+    background: #FFBA3A;
+    box-shadow: 0px 0px 20px #FFDD9F;
+    border-radius: 6px;
+    padding: 4px 20px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+}
+
+.signup-user {
+    position: relative;
+}
+
+.signup-user::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.5px;
+    background-color: #000;
+    left: 0;
+    top: 34px;
+}
+
+.signup-email {
+    position: relative;
+}
+
+.signup-email::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.5px;
+    background-color: #000;
+    left: 0;
+    top: 34px;
+}
+
+.signup-institute {
+    position: relative;
+}
+
+.signup-institute::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.5px;
+    background-color: #000;
+    left: 0;
+    top: 34px;
+}
+
+.signup-password {
+    position: relative;
+}
+
+.signup-password::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.5px;
+    background-color: #000;
+    left: 0;
+    top: 34px;
+}
+
+.login-section .content .description p {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.login-section .content .description h2 {
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.login-section .content .description h2 span {
+    color: var(--gray);
+    font-weight: 700;
+}
+
+.login-section .content .contact p {
+    font-size: 24px;
+}
+
+.login-section .content .description p span {
+    font-size: 30px;
+}
+
+.login-section .content .contact h4 {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.login-section .content .contact-icons i {
+    cursor: pointer;
+    color: var(--darkYellow);
+    text-shadow: 0px 0px 20px #D3DCFD;
+}
+
+.login-section .content .contact-icons i:nth-child(1):hover {
+    color: rgb(37, 113, 255);
+}
+
+.login-section .content .contact-icons i:nth-child(2):hover {
+    color: rgb(253, 0, 0);
+}
+
+.login-section .content .contact-icons i:nth-child(3):hover {
+    color: rgb(88, 146, 255);
+}

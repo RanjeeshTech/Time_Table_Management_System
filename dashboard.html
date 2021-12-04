@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Font Google -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- bootstrap == -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.css">
+
+    <!-- css -->
+    <link rel="stylesheet" href="./assets/css/dashboard.css">
+
+    <!-- script -->
+    <!-- <script src="./assets/js/dashboard.js"></script> -->
+</head>
+
+<body>
+
+    <style>
+        .dash-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            left: 278px;
+            top: -267px;
+            background: #FFDD9F;
+            filter: blur(250px);
+        }
+        
+        .right-section {
+            position: relative;
+        }
+        
+        .right-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            right: 500px;
+            top: 728px;
+            background: #94ACFF;
+            filter: blur(250px);
+        }
+        
+         ::-webkit-scrollbar-track {
+            background-color: rgba(0, 0, 0, 0);
+        }
+        
+         ::-webkit-scrollbar {
+            background-color: rgba(0, 0, 0, 0);
+            width: 6px;
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            background-color: #5892ff;
+        }
+    </style>
+
+    <div class="overflow-hidden">
+        <div class="dashboard-section row">
+            <div class="col-lg-1 light-back bg-light py-lg-0 norightpadding left-section">
+                <div class="logo row justify-content-center align-items-center" style="width: 55%;">
+                    <img src="./assets/images/logo.png" alt="" class="my-3">
+                </div>
+                <div class="nav-section">
+                    <div><a href="#"><i class="fas fa-bars my-4 active-icon" data-page="section-1"></i></a></div>
+                    <div><a href="./createTimeTable.html" style="color: #000;"><i class="far fa-calendar-alt my-4" data-page="section-2"></i></a></div>
+                    <div><a href="./resetPass.html" style="color: #000;"><i class="fas fa-fingerprint my-4" data-page="section-3"></i></a></div>
+                </div>
+                <div class="log-out align-items-end">
+                    <div><i class="fas fa-sign-out-alt"></i></div>
+                </div>
+            </div>
+
+            <!-- Dashboard Section -->
+
+            <div class="col-lg-8 pt-lg-5 pb-lg-5 px-lg-5 dash-section section-1" style="position: relative;">
+                <div class="row pt-5">
+                    <h1 style="font-weight: 700; font-size: 2.8rem;">Dashboard</h1>
+                </div>
+                <div class="row py-lg-4 dashboard-inner-section">
+                    <div class="col-lg-3 black mx-1">
+                        <i class="far fa-check-circle"></i>
+                        <br>
+                        <p class="pt-3">Department / Class: <span>ECE</span></p>
+                        <p>Section: <span>C</span></p>
+                    </div>
+                    <div class="col-lg-3 black mx-1">
+                        <i class="far fa-check-circle"></i>
+                        <br>
+                        <p class="pt-3">Department / Class: <span>ECE</span></p>
+                        <p>Section: <span>C</span></p>
+                    </div>
+                    <div class="col-lg-3 black mx-1">
+                        <i class="far fa-check-circle"></i>
+                        <br>
+                        <p class="pt-3">Department / Class: <span>ECE</span></p>
+                        <p>Section: <span>C</span></p>
+                    </div>
+                    <div class="col-lg-3 black mx-1 mt-5">
+                        <i class="far fa-check-circle"></i>
+                        <br>
+                        <p class="pt-3">Department / Class: <span>ECE</span></p>
+                        <p>Section: <span>C</span></p>
+                    </div>
+                    <div class="col-lg-3 black mx-1 mt-5">
+                        <i class="far fa-check-circle"></i>
+                        <br>
+                        <p class="pt-3">Department / Class: <span>ECE</span></p>
+                        <p>Section: <span>C</span></p>
+                    </div>
+                    <div class="col-lg-3 black mx-1 mt-5">
+                        <i class="far fa-check-circle"></i>
+                        <br>
+                        <p class="pt-3">Department / Class: <span>ECE</span></p>
+                        <p>Section: <span>C</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- --------------------- -->
+
+            <div class="col-lg-3 light-back bg-light py-lg-5 noleftpadding right-section section-2">
+                <div class="profile-pic row text-center align-items-center px-lg-5">
+                    <img src="./assets/images/demo-avatar.png" alt="">
+                </div>
+                <div class="profile-name pt-4 text-center px-3 px-lg-5">
+                    <h4>Hello <span class="faculty-name">Lorem!</span></h4>
+                    <hr>
+                </div>
+                <div class="edit-profile pt-lg-2 px-lg-5">
+                    <button>Edit Profile<span><i class="fas fa-angle-right"></i></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

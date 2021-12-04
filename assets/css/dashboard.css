@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', 'sans-serif';
+}
+
+.norightpadding {
+    padding-right: 0 !important;
+}
+
+.noleftpadding {
+    padding-left: 0 !important;
+    -webkit-box-shadow: 0px 0px 10px #5892ff31;
+    box-shadow: 0px 0px 10px #5892ff31;
+}
+
+.active-icon {
+    color: #2571ff;
+    border-radius: 50%;
+    background: inherit;
+    -webkit-box-shadow: inset 7px 7px 15px rgba(55, 84, 170, 0.15), inset -7px -7px 20px white, 7px 7px 15px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 7px 7px 15px rgba(55, 84, 170, 0.15), inset -7px -7px 20px white, 7px 7px 15px rgba(255, 255, 255, 0.2);
+    -webkit-transition: -webkit-box-shadow 399ms ease-in-out;
+    transition: -webkit-box-shadow 399ms ease-in-out;
+    transition: box-shadow 399ms ease-in-out;
+    transition: box-shadow 399ms ease-in-out, -webkit-box-shadow 399ms ease-in-out;
+    position: relative;
+}
+
+.dashboard-section {
+    min-height: 100vh;
+}
+
+.dashboard-section .light-back {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.dashboard-section .light-back .logo {
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 15px rgba(55, 84, 170, 0.15), -4px -4px 20px white, 4px 4px 4px rgba(255, 255, 255, 0.2), -4px -4px 4px rgba(148, 148, 148, 0.2);
+    box-shadow: 4px 4px 15px rgba(55, 84, 170, 0.15), -4px -4px 20px white, 4px 4px 4px rgba(255, 255, 255, 0.2), -4px -4px 4px rgba(148, 148, 148, 0.2);
+}
+
+.dashboard-section .light-back .nav-section i {
+    font-size: 21px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.dashboard-section .light-back .log-out i {
+    font-size: 22px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.dashboard-section .light-back .nav-section div i {
+    position: relative;
+}
+
+.dashboard-section .light-back .nav-section div:nth-child(1) i:hover::after {
+    z-index: 1;
+    content: 'Dashboard';
+    font-family: 'Poppins', 'sans-serif';
+    font-weight: 500;
+    padding: 10px 20px;
+    width: 10rem;
+    top: 0px;
+    left: 45px;
+    position: absolute;
+    color: #000;
+    background-color: #eff2ff;
+    box-shadow: 0px 0px 10px 2px #eff2ff;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.dashboard-section .light-back .nav-section div:nth-child(2) i:hover::after {
+    z-index: 1;
+    content: 'Create Time Table';
+    font-family: 'Poppins', 'sans-serif';
+    font-weight: 500;
+    padding: 10px 20px;
+    width: 16rem;
+    top: 0px;
+    left: 45px;
+    color: #000;
+    position: absolute;
+    background-color: #eff2ff;
+    box-shadow: 0px 0px 10px 2px #eff2ff;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.dashboard-section .light-back .nav-section div:nth-child(3) i:hover::after {
+    z-index: 1;
+    content: 'Reset Password';
+    font-family: 'Poppins', 'sans-serif';
+    font-weight: 500;
+    padding: 10px 20px;
+    width: 14rem;
+    top: 0px;
+    left: 45px;
+    color: #000;
+    position: absolute;
+    background-color: #eff2ff;
+    box-shadow: 0px 0px 10px 2px #eff2ff;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.dashboard-section .light-back .profile-pic {
+    width: 70%;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.dashboard-section .light-back .profile-pic img {
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 10px 2px #5892ff31;
+    box-shadow: 0px 0px 10px 2px #5892ff31;
+}
+
+.dashboard-section .light-back .profile-name h4 {
+    font-weight: 700;
+    font-size: 2.1rem;
+}
+
+.dashboard-section .light-back .edit-profile {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.dashboard-section .light-back .edit-profile button {
+    width: 100%;
+    padding: 20px 20px;
+    background-color: inherit;
+    border: 0.5px solid #ccc;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: context-menu;
+}
+
+.dashboard-section .light-back .edit-profile button span {
+    padding: 5px 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 15px rgba(55, 84, 170, 0.15), -4px -4px 20px white, 4px 4px 4px rgba(255, 255, 255, 0.2), -4px -4px 4px rgba(148, 148, 148, 0.2);
+    box-shadow: 4px 4px 15px rgba(55, 84, 170, 0.15), -4px -4px 20px white, 4px 4px 4px rgba(255, 255, 255, 0.2), -4px -4px 4px rgba(148, 148, 148, 0.2);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.dashboard-section .light-back .edit-profile button span i {
+    color: #ffba3a;
+    font-size: 21px;
+}
+
+.dashboard-section .light-back:nth-child(1) {
+    -webkit-box-shadow: 0px 0px 10px #5892ff31;
+    box-shadow: 0px 0px 10px #5892ff31;
+}
+
+.dashboard-section .left-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    height: 100vh;
+}
+
+.right-section {
+    height: 100vh;
+}
+
+.dash-section {
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.dashboard-inner-section {
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    position: relative;
+}
+
+.dashboard-inner-section .dashboardinner1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+.dashboard-inner-section .dashboardinner1 div h4 {
+    font-weight: 600;
+}
+
+
+/* .dashboard-inner-section .black:nth-child(even) {
+    background-color: #2571ff;
+    border-radius: 10px;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+} */
+
+.dashboard-inner-section .black {
+    cursor: pointer;
+}
+
+.dashboard-inner-section .black:nth-child(odd) {
+    background-color: #ffba3a38;
+    border-radius: 10px;
+    color: #fff;
+    padding: 20px 20px;
+    color: #ffba3a;
+    border: 1px solid #ccc;
+}
+
+.dashboard-inner-section .black:nth-child(odd) i {
+    color: #ffba3a;
+    font-size: 21px;
+}
+
+.dashboard-inner-section .black:nth-child(even) {
+    background-color: #5892ff31;
+    border-radius: 10px;
+    color: #fff;
+    padding: 20px 20px;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    color: #2571ff;
+    border: 1px solid #ccc;
+}
+
+.dashboard-inner-section .black:nth-child(even) i {
+    color: #2571ff;
+    font-size: 21px;
+}
+
+.login-card .card {
+    width: 255px;
+    height: 350px;
+    background: linear-gradient(152.04deg, #FFDD9F 0%, #FFFFFF 22.19%, #FFFFFF 34.43%, #FFFFFF 45.72%, #FFFFFF 56.46%, #FFFFFF 68.28%, #FFFFFF 80.52%, #B7C7FF 100%);
+    box-shadow: 0px 0px 50px #FFDD9F;
+    border-radius: 6px;
+}
