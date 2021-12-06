@@ -21,13 +21,14 @@
     <!-- Css -->
     <link rel="stylesheet" href="./assets/css/login.css">
     <link rel="stylesheet" href="./assets/css/notification.css">
+    <link rel="stylesheet" href="./assets/css/reset.css">
 
 </head>
 
 <body>
     <div class="notification">
-        <div class="no-user">Incorrect Username / Password!!!</div>
-        <div class="login-success">Login Successfull!!!</div>
+        <div class="no-user">User not Found!!!</div>
+        <div class="reset-success">Password Reset Successfully!!!</div>
     </div>
     <div class="container">
         <div class="header">
@@ -61,24 +62,28 @@
             </div>
             <div class="login-card">
                 <div class="card">
-                    <form action="" style="text-align: center;" class="loginForm">
-                        <div class="login-email">
+                    <form action="" style="text-align: center;" class="resetForm">
+                        <div class="reset-email">
                             <i class="far fa-envelope"></i><input type="email" placeholder="Email..." required class="email">
                         </div>
                         <br>
-                        <div class="login-password" style="display: flex; align-items: center;">
-                            <i class="fab fa-500px"></i><input type="password" placeholder="Password..." required class="password" id="password" style="padding-right: 20px;"><i class="far fa-eye-slash" id="togglePassword" style="cursor: pointer; color: rgb(92, 92, 92); position: absolute; right:0; top:10px"></i>
+                        <div class="reset-password" style="display: flex; align-items: center;">
+                            <i class="fab fa-500px"></i><input type="password" placeholder="Password..." required id="password" style="padding-right: 20px;" class="password"><i class="far fa-eye-slash" id="togglePassword" style="cursor: pointer; color: rgb(92, 92, 92); position: absolute; right:0; top:10px"></i>
                         </div>
                         <br>
-                        <div class="login-institute" style="display: flex; align-items: center;">
+                        <div class="reset-institute" style="display: flex; align-items: center;">
                             <i class="fas fa-university"></i><input type="text" placeholder="Institute Name..." required class="instituteName">
                         </div>
                         <br>
-                        <div style="padding-top: 30px;">
-                            <a href="./resetFromLogin.html" style="text-decoration: none; color: rgb(141, 141, 141); position: relative;" class="forgetPass">Forget Password?</a>
+                        <div class="reset-password" style="display: flex; align-items: center;">
+                            <i class="fab fa-500px"></i><input type="password" placeholder="New Password..." id="new-password" required class="newPassword"><i class="far fa-eye-slash" id="toggleNewPassword" style="cursor: pointer; color: rgb(92, 92, 92); position: absolute; right:0; top:10px"></i>
                         </div>
-                        <div class="login-button" style="padding-top: 30px;">
-                            <button type="submit">LOG IN</button>
+
+                        <div style="padding-top: 18px;">
+                            <a href="./index.html" style="text-decoration: none; color: rgb(141, 141, 141); position: relative;" class="forgetPass">Back To Login?</a>
+                        </div>
+                        <div class="reset-button" style="padding-top: 12px;">
+                            <button type="submit">RESET PASSWORD</button>
                         </div>
                     </form>
                 </div>
@@ -87,7 +92,7 @@
     </div>
 
     <!-- Script -->
-    <script src="./assets/js/login.js"></script>
+    <script src="./assets/js/reset.js"></script>
 </body>
 
 </html>

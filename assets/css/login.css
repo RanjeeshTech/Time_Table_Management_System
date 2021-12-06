@@ -10,6 +10,10 @@
     font-family: 'Poppins', 'sans-serif';
 }
 
+html {
+    overflow: hidden;
+}
+
 body {
     background: linear-gradient(107.66deg, #FFFCF6 0%, #FFFFFF 100.55%);
     position: relative;
@@ -135,7 +139,7 @@ body::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 0.2px solid #000;
+    border: 0.1px solid #fff;
 }
 
 .login-card .card input {

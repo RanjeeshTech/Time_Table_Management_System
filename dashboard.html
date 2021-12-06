@@ -23,9 +23,6 @@
 
     <!-- css -->
     <link rel="stylesheet" href="./assets/css/dashboard.css">
-
-    <!-- script -->
-    <!-- <script src="./assets/js/dashboard.js"></script> -->
 </head>
 
 <body>
@@ -83,7 +80,7 @@
                     <div><a href="./resetPass.html" style="color: #000;"><i class="fas fa-fingerprint my-4" data-page="section-3"></i></a></div>
                 </div>
                 <div class="log-out align-items-end">
-                    <div><i class="fas fa-sign-out-alt"></i></div>
+                    <div><i class="fas fa-sign-out-alt" onclick="logout()"></i></div>
                 </div>
             </div>
 
@@ -140,7 +137,7 @@
                     <img src="./assets/images/demo-avatar.png" alt="">
                 </div>
                 <div class="profile-name pt-4 text-center px-3 px-lg-5">
-                    <h4>Hello <span class="faculty-name">Lorem!</span></h4>
+                    <h4>Hello <span class="faculty-name">Lorem</span>!</h4>
                     <hr>
                 </div>
                 <div class="edit-profile pt-lg-2 px-lg-5">
@@ -149,6 +146,9 @@
             </div>
         </div>
     </div>
+
+    <script src="./assets/js/dashboard.js"></script>
+    <script src="./assets/js/logout.js"></script>
 </body>
 
 </html>

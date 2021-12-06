@@ -1,0 +1,29 @@
+.notification {
+    display: flex;
+    justify-content: center;
+}
+
+.no-user,
+.login-success,
+.reset-success {
+    position: absolute;
+    font-size: 1.4rem;
+    padding: 10px 100px;
+    border: 2px dotted #000;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    text-align: center;
+    border-radius: 10px;
+    transform: translateY(-100px);
+    transition: 1s linear;
+    z-index: 2;
+}
+
+.login-success,
+.reset-success {
+    background-color: #e4ffe6;
+}
+
+.no-user {
+    background-color: #ffe4e4;
+}

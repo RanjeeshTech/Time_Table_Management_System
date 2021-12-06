@@ -30,7 +30,7 @@
                 <h4>Calendario</h4>
             </div>
             <div class="nav-section">
-                <a href="./login.html">Already have an account ?</a>
+                <a href="./index.html">Already have an account ?</a>
                 <button><a href="./index.html">Log In</a></button>
             </div>
         </div>
@@ -56,21 +56,21 @@
             </div>
             <div class="login-card">
                 <div class="card">
-                    <form action="" style="text-align: center;">
+                    <form action="" style="text-align: center;" id="signupForm">
                         <div class="signup-user">
-                            <i class="far fa-user"></i><input type="text" placeholder="Username..." required>
+                            <i class="far fa-user"></i><input type="text" placeholder="Username..." class="username" required>
                         </div>
                         <br>
                         <div class="signup-email">
-                            <i class="far fa-envelope"></i><input type="email" placeholder="Email..." required>
+                            <i class="far fa-envelope"></i><input type="email" placeholder="Email..." class="email" required>
                         </div>
                         <br>
                         <div class="signup-password">
-                            <i class="fab fa-500px"></i><input type="password" placeholder="Password..." required>
+                            <i class="fab fa-500px"></i><input type="password" placeholder="Password..." class="password" required id="password"><i class="far fa-eye-slash" id="togglePassword" style="cursor: pointer; color: rgb(92, 92, 92); position: absolute; right:0; top:10px;"></i>
                         </div>
                         <br>
                         <div class="signup-institute">
-                            <i class="fas fa-university"></i><input type="text" placeholder="Institute Name..." required>
+                            <i class="fas fa-university"></i><input type="text" placeholder="Institute Name..." class="instituteName" required>
                         </div>
                         <div class="signup-button">
                             <button type="submit">REGISTER</button>
@@ -80,6 +80,10 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Script -->
+    <script src="./assets/js/signup.js"></script>
 </body>
 
 </html>
