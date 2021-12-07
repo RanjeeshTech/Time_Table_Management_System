@@ -1,4 +1,4 @@
-const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+const currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
 const helloUser = document.querySelector(".faculty-name");
 
 if (currentUser.length == 0) {

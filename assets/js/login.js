@@ -1,4 +1,4 @@
-const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+const currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
 console.log(currentUser);
 if (currentUser.length != 0) {
     location.replace("./dashboard.html");
