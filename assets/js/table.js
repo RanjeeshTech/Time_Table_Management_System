@@ -21,14 +21,32 @@ if (currentUser.length == 0) {
     var startTime = parseInt(tableDetails.classStartTime);
     var classTiming = parseInt(tableDetails.periodTiming);
     var lunchTiming = parseInt(tableDetails.lunchTiming);
+    var breakTiming = parseInt(tableDetails.breakTiming);
     var lunch = 0;
+    var interval1 = 0;
+    var interval2 = 0;
     const totalPeriods = parseInt(tableDetails.totalPeriods);
     if (totalPeriods % 2 == 0) {
-        lunch = totalPeriods / 2;
+        lunch = Math.floor(totalPeriods / 2);
+        if (lunch % 2 == 0) {
+            interval1 = Math.floor(lunch / 2);
+            interval2 = lunch + Math.floor(lunch / 2) + 1;
+        } else {
+            interval1 = Math.floor(lunch / 2) + 1;
+            interval2 = lunch + Math.floor(lunch / 2) + 2;
+        }
     } else {
         lunch = Math.floor((totalPeriods / 2) + 1);
+        if (lunch % 2 == 0) {
+            interval1 = Math.floor(lunch / 2);
+        } else {
+            interval1 = Math.floor(lunch / 2) + 1;
+        }
+
+        interval2 = lunch + Math.floor(lunch / 2) + 1;
     }
-    console.log(lunch);
+
+    console.log(interval2);
     var currentPeriod = 0;
     var minsHand = 0;
 
@@ -61,9 +79,8 @@ if (currentUser.length == 0) {
         }
         if (currentPeriod == lunch) {
             tablePeriod += `
-                            <td><input type="text" class="form-control" disabled style="background-color: #fff; text-align:center; font-weight:700; padding:0 !important" value="${startTime}:${mins} ${amORpm}"></td>
                             <td colspan="12">
-                                <input type="text" class="form-control" disabled style="cursor: pointer; background-color: #fff; font-weight:700; text-align:center;" value="LUNCH BREAK">
+                                <input type="text" class="form-control" disabled style="cursor: pointer; background-color: #fff; font-weight:700; text-align:center;" value="${startTime}:${mins} ${amORpm} - LUNCH BREAK">
                             </td>`;
             if (lunchTiming % 60 == 0) {
                 startTime += Math.floor((lunchTiming / 60));
@@ -80,7 +97,7 @@ if (currentUser.length == 0) {
                 if (i == 0) {
                     tablePeriod += `<td><input type="text" class="form-control" disabled style="background-color: #fff; text-align:center; font-weight:700; padding:0 !important" value="${startTime}:${mins} ${amORpm}"></td>`;
                 } else {
-                    tablePeriod += `<td><input type="text" class="form-control" disabled style="cursor: pointer; background-color: #fff;"></td>`;
+                    tablePeriod += `<td><input type="text" class="form-control" disabled style="cursor: pointer; background-color: #fff;" placeholder="Click to Add Subject..."></td>`;
                 }
             }
             if (classTiming % 60 == 0) {
@@ -96,6 +113,22 @@ if (currentUser.length == 0) {
         }
         currentPeriod++;
 
+        if (currentPeriod == interval1 || currentPeriod == interval2) {
+            tablePeriod += `<tr>    
+                            <td colspan="12">
+                                <input type="text" class="form-control" disabled style="cursor: pointer; background-color: #fff; font-weight:700; text-align:center;" value="${startTime}:${mins} ${amORpm} - INTERVAL">
+                            </td></tr>`;
+            if (breakTiming % 60 == 0) {
+                startTime += Math.floor((breakTiming / 60));
+            } else {
+                startTime += Math.floor((breakTiming / 60));
+                minsHand += breakTiming % 60;
+                if (minsHand >= 60) {
+                    startTime += Math.floor((breakTiming / 60));
+                    minsHand = minsHand % 60;
+                }
+            }
+        }
         return tablePeriod;
     }
     var tableHead = "";

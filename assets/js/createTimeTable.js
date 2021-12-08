@@ -11,7 +11,7 @@ resetbtn.addEventListener("click", () => {
     document.querySelector(".breakTiming").value = "";
     document.querySelector(".section").value = "";
     document.querySelector(".totalPeriods").value = "";
-    document.querySelector(".totalBreaks").value = "";
+    // document.querySelector(".totalBreaks").value = "";
     document.querySelector(".classStartTime").value = "";
 
     localStorage.setItem("currentTable", JSON.stringify([]));
@@ -30,7 +30,7 @@ if (currentUser.length == 0) {
         const breakTiming = document.querySelector(".breakTiming").value;
         const section = document.querySelector(".section").value;
         const totalPeriods = document.querySelector(".totalPeriods").value;
-        const totalBreaks = document.querySelector(".totalBreaks").value;
+        // const totalBreaks = document.querySelector(".totalBreaks").value;
         const classStartTime = document.querySelector(".classStartTime").value;
         const periodTiming = document.querySelector(".periodTiming").value;
 
@@ -41,7 +41,7 @@ if (currentUser.length == 0) {
             breakTiming: breakTiming,
             section: section,
             totalPeriods: totalPeriods,
-            totalBreaks: totalBreaks,
+            // totalBreaks: totalBreaks,
             classStartTime: classStartTime,
             periodTiming: periodTiming
         }
