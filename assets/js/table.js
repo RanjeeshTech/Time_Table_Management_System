@@ -1,8 +1,6 @@
 const tableDetails = JSON.parse(localStorage.getItem("currentTable")) || [];
 const currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
 
-
-
 if (currentUser.length == 0) {
     location.replace("./index.html");
 } else if (currentUser.length != 0 && tableDetails.length == 0) {
@@ -15,6 +13,23 @@ if (currentUser.length == 0) {
     backBtn.addEventListener("click", () => {
         location.replace('./createTimeTable.html');
         localStorage.setItem("currentTable", JSON.stringify([]));
+    })
+
+    const createbtn = document.querySelector(".createBtn");
+    createbtn.addEventListener("click", () => {
+        // document.querySelector(".no-fill").style.transform = "translateY(45px)";
+        // setTimeout(() => {
+        //     document.querySelector(".no-fill").style.transform = "translateY(-100px)";
+        // }, 2000);
+
+        // document.querySelector(".table-success").style.transform = "translateY(45px)";
+        // setTimeout(() => {
+        //     document.querySelector(".table-success").style.transform = "translateY(-100px)";
+        //     setTimeout(() => {
+        //         localStorage.setItem("currentTable", JSON.stringify([]));
+        //         location.replace("./createTimeTable.html");
+        //     }, 1000)
+        // }, 2000);
     })
 
 
@@ -98,7 +113,7 @@ if (currentUser.length == 0) {
                 if (i == 0) {
                     tablePeriod += `<td><input type="text" class="form-control" disabled style="background-color: #fff; text-align:center; font-weight:700; padding:0 !important" value="${startTime}:${mins} ${amORpm}"></td>`;
                 } else {
-                    tablePeriod += `<td><input type="text" class="form-control" disabled style="cursor: pointer; background-color: #fff;" placeholder="Click to Add Subject..."></td>`;
+                    tablePeriod += `<td><input type="text" id="name-${currentPeriod}${i}" class="form-control modelOpeners" disabled style="cursor: pointer; background-color: #fff;" placeholder="Click to Add Subject..."></td>`;
                 }
             }
             if (classTiming % 60 == 0) {
@@ -159,4 +174,44 @@ if (currentUser.length == 0) {
     `
 
     tableContainer.innerHTML = basicTableForm;
+
+    const openModel = (e) => {
+        if (!e.target.classList.contains("modelOpeners")) {
+            return;
+        }
+        const model = document.querySelector(".detail-model");
+        model.style.display = "block";
+        tableContainer.style.pointerEvents = "none";
+        // document.querySelector(".dash-section").style.overflow = "hidden";
+        document.querySelector(".dash-section").style.opacity = 0.5;
+        // e.target.value = "Hello";
+        console.log(e.target.id);
+    }
+
+    const closeModel = (e) => {
+        if (!e.target.classList.contains("closeModel")) {
+            return;
+        }
+        detailModel.style.display = "none";
+        tableContainer.style.pointerEvents = "auto";
+        document.querySelector(".dash-section").style.overflow = "scroll";
+        document.querySelector(".dash-section").style.opacity = 1;
+    }
+    const addFaculty = (e) => {
+        e.preventDefault();
+        const subjectName = document.querySelector(".subjectName");
+        const subjectFaculty = document.querySelector(".subjectFaculty");
+        const facultyEmail = document.querySelector(".facultyEmail");
+
+
+
+        detailModel.style.display = "none"
+        tableContainer.style.pointerEvents = "auto";
+        document.querySelector(".dash-section").style.overflow = "scroll";
+        document.querySelector(".dash-section").style.opacity = 1;
+    }
+    const detailModel = document.querySelector(".detail-model");
+    tableContainer.addEventListener("click", openModel);
+    detailModel.addEventListener("click", closeModel);
+    detailModel.addEventListener("submit", addFaculty);
 }

@@ -5,7 +5,9 @@
 
 .no-user,
 .login-success,
-.reset-success {
+.reset-success,
+.no-fill,
+.table-success {
     position: absolute;
     font-size: 1.4rem;
     padding: 10px 100px;
@@ -20,10 +22,12 @@
 }
 
 .login-success,
-.reset-success {
+.reset-success,
+.table-success {
     background-color: #e4ffe6;
 }
 
-.no-user {
+.no-user,
+.no-fill {
     background-color: #ffe4e4;
 }
