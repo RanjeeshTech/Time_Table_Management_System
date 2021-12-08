@@ -25,12 +25,17 @@
     <link rel="stylesheet" href="./assets/css/dashboard.css">
 
     <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/notification.css">
 
     <!-- script -->
     <!-- <script src="./assets/js/dashboard.js"></script> -->
 </head>
 
 <body>
+    <div class="notification">
+        <div class="no-user">User not Found!!!</div>
+        <div class="reset-success">Password Reset Successfully!!!</div>
+    </div>
     <style>
          ::-webkit-scrollbar-track {
             background-color: rgba(0, 0, 0, 0);
@@ -70,21 +75,21 @@
                 <div class="row py-lg-4 justify-content-center mt-4">
                     <div class="reset-card col-lg-auto">
                         <div class="card">
-                            <form action="" style="text-align: center;">
+                            <form action="" style="text-align: center;" class="resetForm">
                                 <div class="reset-email">
-                                    <i class="far fa-envelope"></i><input type="email" placeholder="Email..." required>
+                                    <i class="far fa-envelope"></i><input type="email" placeholder="Email..." required class="email">
                                 </div>
                                 <br>
                                 <div class="reset-password" style="display: flex; align-items: center;">
-                                    <i class="fab fa-500px"></i><input type="password" placeholder="Password..." required>
+                                    <i class="fab fa-500px"></i><input type="password" placeholder="Password..." required id="password" style="padding-right: 20px;" class="password"><i class="far fa-eye-slash" id="togglePassword" style="cursor: pointer; color: rgb(92, 92, 92); position: absolute; right:0; top:10px"></i>
                                 </div>
                                 <br>
                                 <div class="reset-institute" style="display: flex; align-items: center;">
-                                    <i class="fas fa-university"></i><input type="text" placeholder="Institute Name..." required>
+                                    <i class="fas fa-university"></i><input type="text" placeholder="Institute Name..." required class="instituteName">
                                 </div>
                                 <br>
                                 <div class="reset-password" style="display: flex; align-items: center;">
-                                    <i class="fab fa-500px"></i><input type="password" placeholder="New Password..." required>
+                                    <i class="fab fa-500px"></i><input type="password" placeholder="New Password..." required id="new-password" style="padding-right: 20px;" class="newPassword"><i class="far fa-eye-slash" id="toggleNewPassword" style="cursor: pointer; color: rgb(92, 92, 92); position: absolute; right:0; top:10px"></i>
                                 </div>
                                 <br>
                                 <div class="reset-button" style="padding-top: 30px;">
@@ -100,6 +105,7 @@
 
     <!-- Script -->
     <script src="./assets/js/logout.js"></script>
+    <script src="./assets/js/reset2.js"></script>
 </body>
 
 </html>

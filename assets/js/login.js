@@ -24,7 +24,6 @@ if (currentUser.length != 0) {
 
 
     //Logging In
-    let userFound = 0;
     loginForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const inputEmail = document.querySelector(".email").value;

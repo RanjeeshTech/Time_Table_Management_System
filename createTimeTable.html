@@ -84,39 +84,39 @@
                     <div><a href="./resetPass.html" style="color: #000;"><i class="fas fa-fingerprint my-4" data-page="section-3"></i></a></div>
                 </div>
                 <div class="log-out align-items-end">
-                    <div><i class="fas fa-sign-out-alt"></i></div>
+                    <div><i class="fas fa-sign-out-alt" onclick="logout()"></i></div>
                 </div>
             </div>
 
             <!-- Dashboard Section -->
 
-            <div class="col-lg-11 pt-lg-2 px-lg-5 dash-section section-1" style="position: relative;">
+            <form class="col-lg-11 pt-lg-2 px-lg-5 dash-section section-1" style="position: relative;">
                 <div class="row pt-5">
                     <h1 style="font-weight: 700; font-size: 2.8rem; ">Time Table Generator</h1>
                 </div>
                 <div class="row pt-lg-5">
                     <div class="col-lg-6">
-                        <input type="text " placeholder="Department... " class="form-control py-lg-3 w-75 mx-auto" style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1);">
-                        <input type="text " placeholder="Total Working Days / Week... " class="form-control my-lg-5 py-lg-3 w-75 mx-auto" style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1);">
-                        <input type="text " placeholder="Lunch Timing... " class="form-control my-lg-5 py-lg-3 w-75 mx-auto" style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1);">
-                        <input type="text " placeholder="Break Timing... " class="form-control mt-lg-5 py-lg-3 w-75 mx-auto" style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1);">
+                        <input type="text " placeholder="Department... " class="form-control py-lg-3 w-75 mx-auto dept" required style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1);">
+                        <input type="text " placeholder="Total Working Days / Week... " class="form-control my-lg-5 py-lg-3 w-75 mx-auto workingDays" required style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1);">
+                        <input type="text " placeholder="Lunch Timing... " class="form-control my-lg-5 py-lg-3 w-75 mx-auto lunchTiming" required style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1);">
+                        <input type="text " placeholder="Break Timing... " class="form-control mt-lg-5 py-lg-3 w-75 mx-auto breakTiming" required style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1);">
                     </div>
                     <div class="col-lg-6">
-                        <input type="text " placeholder="Section... " class="form-control py-lg-3 w-75 mx-auto " style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1); ">
-                        <input type="text " placeholder="Total Periods / Day... " class="form-control my-lg-5 py-lg-3 w-75 mx-auto " style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1); ">
-                        <input type="text " placeholder="Total Break / Day... " class="form-control my-lg-5 py-lg-3 w-75 mx-auto " style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1); ">
-                        <input type="text " placeholder="Break Times... " class="form-control mt-lg-5 py-lg-3 w-75 mx-auto " style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1); ">
+                        <input type="text " placeholder="Section... " class="form-control py-lg-3 w-75 mx-auto section" required style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1); ">
+                        <input type="text " placeholder="Total Periods / Day... " class="form-control my-lg-5 py-lg-3 w-75 mx-auto totalPeriods" required style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1); ">
+                        <input type="text " placeholder="Total Break / Day... " class="form-control my-lg-5 py-lg-3 w-75 mx-auto totalBreaks" required style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1); ">
+                        <input type="text " placeholder="Class Starting Time... " class="form-control mt-lg-5 py-lg-3 w-75 mx-auto classStartTime" required style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1); ">
                     </div>
                 </div>
                 <div class="row w-100 pt-lg-5" style="position:relative;">
                     <div class="submit-buttons justify-content-center align-items-center pt-3" style=" display: flex;flex-direction: column; ">
                         <div class=" ">
-                            <button class="back-btn me-4 " style="font-weight: 700; padding: 7px 25px; font-size: 18px; border-radius: 10px; ">Back</button>
-                            <button class="next-btn ms-4 " style="font-weight: 700; padding: 7px 25px; font-size: 18px; border-radius: 10px; ">Next</button>
+                            <button class="back-btn me-4 resetbtn" style="font-weight: 700; padding: 7px 25px; font-size: 18px; border-radius: 10px;">Reset</button>
+                            <button class="next-btn ms-4 " type="submit" style="font-weight: 700; padding: 7px 25px; font-size: 18px; border-radius: 10px; ">Next</button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 
