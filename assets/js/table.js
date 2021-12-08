@@ -18,10 +18,12 @@ if (currentUser.length == 0) {
     })
 
 
-    var startTime = parseInt(tableDetails.classStartTime);
+    var startingTime = (tableDetails.classStartTime).split(':');
     var classTiming = parseInt(tableDetails.periodTiming);
     var lunchTiming = parseInt(tableDetails.lunchTiming);
     var breakTiming = parseInt(tableDetails.breakTiming);
+    var startTime = parseInt(startingTime[0]);
+    var minsHand = parseInt(startingTime[1]);
     var lunch = 0;
     var interval1 = 0;
     var interval2 = 0;
@@ -48,7 +50,6 @@ if (currentUser.length == 0) {
 
     console.log(interval2);
     var currentPeriod = 0;
-    var minsHand = 0;
 
     var allClasses = "";
 
@@ -140,11 +141,7 @@ if (currentUser.length == 0) {
             tableHead += `<td>${days[i-1]}</td>`;
         }
     }
-    // <tr class="break">
-    // <td colspan="12">
-    //     <input type="text" class="form-control" disabled style="cursor: pointer; background-color: #fff;">
-    // </td>
-    // </tr>
+
     const tableContainer = document.querySelector(".tableContainer");
     const basicTableForm = `
             <div class="col-lg-auto">

@@ -58,6 +58,11 @@
             filter: blur(250px);
         }
         
+        .model-anim {
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
          ::-webkit-scrollbar-track {
             background-color: rgba(0, 0, 0, 0);
         }
@@ -70,8 +75,49 @@
          ::-webkit-scrollbar-thumb {
             background-color: #5892ff;
         }
+        
+        .detail-model {
+            position: absolute;
+            background-color: #fff;
+            z-index: 1;
+            border: 1px solid #000000;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 10px #FFDD9F;
+            border-radius: 6px;
+            margin: auto;
+            padding: 20px 20px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 270px;
+            margin-top: 12%;
+        }
+        
+        .detail-model button {
+            background: #FFDD9F;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 2px 10px;
+        }
     </style>
-
+    <!-- <div class="detail-model">
+        <form class="content text-center" style="position:relative;">
+            <i class="fas fa-times" style="position: absolute; top: -45px; right: 0px; cursor: pointer; font-size: 24px;"></i>
+            <div style="position: relative;">
+                <hr class="mt-5">
+            </div>
+            <div>
+                <input type="text" placeholder="Subject Name:" class="form-control my-3">
+                <input type="text" placeholder="Faculty Name:" class="form-control my-3">
+                <input type="text" placeholder="Faculty Email:" class="form-control my-3">
+                <button>Confirm</button>
+            </div>
+            <div>
+                <hr class="mb-5">
+            </div>
+        </form>
+    </div> -->
     <div class="overflow-hidden">
         <div class="dashboard-section row">
             <div class="col-lg-1 light-back bg-light py-lg-0 norightpadding left-section">
@@ -89,40 +135,48 @@
             </div>
 
             <!-- Dashboard Section -->
-
-            <form class="col-lg-11 pt-lg-2 px-lg-5 dash-section section-1" style="position: relative;">
+            <style>
+                td {
+                    border: 1px solid #000;
+                    padding: 2px;
+                }
+                /* table {
+                    border: 1px solid #000;
+                } */
+                
+                td input {
+                    height: 50px;
+                    cursor: pointer;
+                    background-color: #fff;
+                }
+                
+                thead td {
+                    padding: 20px;
+                    font-weight: 700;
+                    text-align: center;
+                }
+            </style>
+            <div class="col-lg-11 pt-lg-2 px-lg-5 dash-section section-1" style="position: relative;">
                 <div class="row pt-5">
-                    <h1 style="font-weight: 700; font-size: 2.8rem; ">Time Table Generator</h1>
+                    <h1 style="font-weight: 700; font-size: 2.8rem;">Time Table</h1>
                 </div>
-                <div class="row pt-lg-5">
-                    <div class="col-lg-6">
-                        <input type="text " placeholder="Department / Class... " class="form-control py-lg-3 w-75 mx-auto dept" required style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1);">
-                        <input type="text " placeholder="Total Working Days / Week ( Eg. 1,2,3...7 )" class="form-control my-lg-5 py-lg-3 w-75 mx-auto workingDays" required style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1);">
-                        <input type="text " placeholder="Lunch Timing ( In mins Eg. 25,30,60,.. )" class="form-control my-lg-5 py-lg-3 w-75 mx-auto lunchTiming" required style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1);">
-                        <input type="text " placeholder="Break Timing... ( In mins Eg. 25,30,60,.. )" class="form-control mt-lg-5 py-lg-3 w-75 mx-auto breakTiming" required style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1);">
-                    </div>
-                    <div class="col-lg-6">
-                        <input type="text " placeholder="Section... " class="form-control py-lg-3 w-75 mx-auto section" required style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1); ">
-                        <input type="text " placeholder="Total Periods / Day ( Eg. 1,2,3...7 )" class="form-control my-lg-5 py-lg-3 w-75 mx-auto totalPeriods" required style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1); ">
-                        <input type="text " placeholder="Period Timing ( In mins Eg. 25,30,60,.. )" class="form-control mt-lg-5 py-lg-3 w-75 mx-auto periodTiming" required style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1);">
-                        <input type="text " placeholder="Class Starting Time... ( In hours Eg. 8:00,9:10,10:20,... )" class="form-control mt-lg-5 py-lg-3 w-75 mx-auto classStartTime" required style="box-shadow: 0px 0px 10px 0px rgba(183, 199, 255, 1); ">
-                    </div>
+                <div class="row justify-content-center align-items-center pt-lg-5 tableContainer" style="text-align:justify;">
                 </div>
+
+
                 <div class="row w-100 py-lg-5" style="position:relative;">
-                    <div class="submit-buttons justify-content-center align-items-center pt-3" style=" display: flex;flex-direction: column; ">
+                    <div class="submit-buttons justify-content-center align-items-center" style=" display: flex;flex-direction: column; ">
                         <div class=" ">
-                            <button class="back-btn me-4 resetbtn" style="font-weight: 700; padding: 7px 25px; font-size: 18px; border-radius: 10px;">Reset</button>
-                            <button class="next-btn ms-4 " style="font-weight: 700; padding: 7px 25px; font-size: 18px; border-radius: 10px; ">Next</button>
+                            <button class="next-btn ms-4 backBtn" style="font-weight: 700; padding: 7px 25px; font-size: 18px; border-radius: 10px; ">Back</button>
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 
-    <!-- Script -->
+    <!-- <script src="./assets/js/table.js"></script> -->
     <script src="./assets/js/logout.js"></script>
-    <script src="./assets/js/createTimeTable.js"></script>
 </body>
 
 </html>
