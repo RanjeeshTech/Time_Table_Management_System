@@ -216,7 +216,7 @@ if (currentUser.length == 0) {
 
         for (let i = 0; i < users.length; i++) {
             console.log(users[i]);
-            if (users[i].email == facultyEmail) {
+            if (users[i].email == facultyEmail && users[i].instituteName == currentUser.currentInstitute) {
                 bool = true;
                 console.log(true);
                 break;
@@ -267,8 +267,8 @@ if (currentUser.length == 0) {
         document.querySelector(".no-user-account").style.transform = "translateY(-150px)";
         document.querySelector(".dash-section").style.pointerEvents = "auto";
         document.querySelector(".dash-section").style.opacity = 1;
+        detailModel.style.pointerEvents = "auto";
         document.querySelector(currentClass).value = subjectName;
-        detailModel.style.display = "none";
         document.querySelector(".subjectName").value = "";
         document.querySelector(".subjectFaculty").value = "";
         document.querySelector(".facultyEmail").value = "";

@@ -49,9 +49,9 @@ if (currentUser.length != 0) {
             }
         }
         document.querySelector(".no-user").style.transform = "translateY(45px)";
-        document.querySelector(".email").value = "";
-        document.querySelector(".password").value = "";
-        document.querySelector(".instituteName").value = "";
+        document.querySelector(".email").disabled = true;
+        document.querySelector(".password").disabled = true;
+        document.querySelector(".instituteName").disabled = true;
         setTimeout(function() {
             document.querySelector(".no-user").style.transform = "translateY(-100px)";
             setTimeout(function() {
