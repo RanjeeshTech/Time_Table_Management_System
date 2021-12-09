@@ -18,10 +18,15 @@ for (let i = 0; i < currentUser.currentTables.length; i++) {
         <div class="col-lg-3 black mx-1">
             <i class="far fa-check-circle"></i>
             <br>
-            <p class="pt-3">Department / Class: <span>${currentUser.currentTables[i].department}</span></p>
-            <p>Section: <span>${currentUser.currentTables[i].section}</span></p>
+            <p class="pt-3 black-para">Department / Class: <span>${currentUser.currentTables[i].department}</span></p>
+            <p class="black-para">Section: <span>${currentUser.currentTables[i].section}</span></p>
         </div>
     `
 }
 
 container.innerHTML = contains;
+
+container.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("black") && !e.target.classList.contains("black-para")) return;
+    console.log(e.target == document.getElementsByClassName("black")[0]);
+})
