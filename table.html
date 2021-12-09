@@ -34,6 +34,14 @@
     <div class="notification">
         <div class="no-fill">Please Fill All The Field!!!</div>
         <div class="table-success">Table Created Successfully!!!</div>
+        <div class="no-user-account">
+            <div style="font-size: 28px;">No User Found!</div>
+            <div class="pt-2" style="font-size: 18px; font-weight: 400;">Do You Want To Create An Account For The User</div>
+            <div class="YesOrNo pt-2">
+                <button class="yesCreate">Yes</button>
+                <button class="noCreate">No</button>
+            </div>
+        </div>
     </div>
     <style>
         .dash-section::before {
@@ -115,7 +123,7 @@
             <div>
                 <input type="text" placeholder="Subject Name:" class="form-control my-3 subjectName" required>
                 <input type="text" placeholder="Faculty Name:" class="form-control my-3 subjectFaculty" required>
-                <input type="text" placeholder="Faculty Email:" class="form-control my-3 facultyEmail" required>
+                <input type="email" placeholder="Faculty Email:" class="form-control my-3 facultyEmail" required>
                 <button>Confirm</button>
             </div>
             <div>

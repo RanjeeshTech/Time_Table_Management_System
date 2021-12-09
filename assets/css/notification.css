@@ -31,3 +31,29 @@
 .no-fill {
     background-color: #ffe4e4;
 }
+
+.no-user-account {
+    position: absolute;
+    font-size: 1.4rem;
+    padding: 10px 100px;
+    border: 2px dotted #000;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    text-align: center;
+    border-radius: 10px;
+    transform: translateY(-150px);
+    transition: 1s linear;
+    z-index: 2;
+    background-color: #ffe4e4;
+}
+
+.no-user-account .YesOrNo button {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0px 20px;
+    border: none;
+    background-color: #fff;
+    margin: 0px 20px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px 2px #fff;
+}

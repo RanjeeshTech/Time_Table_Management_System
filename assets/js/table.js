@@ -1,5 +1,6 @@
 const tableDetails = JSON.parse(localStorage.getItem("currentTable")) || [];
 const currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
+const users = JSON.parse(localStorage.getItem("users")) || [];
 
 if (currentUser.length == 0) {
     location.replace("./index.html");
@@ -175,6 +176,8 @@ if (currentUser.length == 0) {
 
     tableContainer.innerHTML = basicTableForm;
 
+    var currentClass = "";
+
     const openModel = (e) => {
         if (!e.target.classList.contains("modelOpeners")) {
             return;
@@ -184,8 +187,8 @@ if (currentUser.length == 0) {
         tableContainer.style.pointerEvents = "none";
         // document.querySelector(".dash-section").style.overflow = "hidden";
         document.querySelector(".dash-section").style.opacity = 0.5;
-        // e.target.value = "Hello";
-        console.log(e.target.id);
+        // e.target.value = "Hello";    
+        currentClass = "#" + e.target.id;
     }
 
     const closeModel = (e) => {
@@ -196,22 +199,79 @@ if (currentUser.length == 0) {
         tableContainer.style.pointerEvents = "auto";
         document.querySelector(".dash-section").style.overflow = "scroll";
         document.querySelector(".dash-section").style.opacity = 1;
+        document.querySelector(".subjectName").value = "";
+        document.querySelector(".subjectFaculty").value = "";
+        document.querySelector(".facultyEmail").value = "";
     }
+
+    var bool = false;
+    var subjectName = "";
+    var subjectFaculty = "";
+    var facultyEmail = "";
     const addFaculty = (e) => {
         e.preventDefault();
-        const subjectName = document.querySelector(".subjectName");
-        const subjectFaculty = document.querySelector(".subjectFaculty");
-        const facultyEmail = document.querySelector(".facultyEmail");
+        subjectName = document.querySelector(".subjectName").value;
+        subjectFaculty = document.querySelector(".subjectFaculty").value;
+        facultyEmail = document.querySelector(".facultyEmail").value;
 
+        for (let i = 0; i < users.length; i++) {
+            console.log(users[i]);
+            if (users[i].email == facultyEmail) {
+                bool = true;
+                console.log(true);
+                break;
+            }
+        }
 
+        if (!bool) {
+            document.querySelector(".no-user-account").style.transform = "translateY(45px)";
+            document.querySelector(".dash-section").style.pointerEvents = "none";
+            document.querySelector(".dash-section").style.opacity = 0.5;
+            detailModel.style.pointerEvents = "none";
+        } else {
+            document.querySelector(currentClass).value = subjectName;
 
-        detailModel.style.display = "none"
-        tableContainer.style.pointerEvents = "auto";
-        document.querySelector(".dash-section").style.overflow = "scroll";
-        document.querySelector(".dash-section").style.opacity = 1;
+            detailModel.style.display = "none"
+            tableContainer.style.pointerEvents = "auto";
+            document.querySelector(".dash-section").style.overflow = "scroll";
+            document.querySelector(".dash-section").style.opacity = 1;
+            document.querySelector(".subjectName").value = "";
+            document.querySelector(".subjectFaculty").value = "";
+            document.querySelector(".facultyEmail").value = "";
+        }
+        bool = false;
     }
     const detailModel = document.querySelector(".detail-model");
     tableContainer.addEventListener("click", openModel);
     detailModel.addEventListener("click", closeModel);
     detailModel.addEventListener("submit", addFaculty);
+
+    const yesCreate = document.querySelector(".yesCreate");
+    const noCreate = document.querySelector(".noCreate");
+    noCreate.addEventListener("click", () => {
+        document.querySelector(".no-user-account").style.transform = "translateY(-150px)";
+        document.querySelector(".dash-section").style.pointerEvents = "auto";
+        document.querySelector(".dash-section").style.opacity = 1;
+        detailModel.style.pointerEvents = "auto";
+    })
+
+    yesCreate.addEventListener("click", () => {
+        users.push({
+            username: subjectFaculty,
+            email: facultyEmail,
+            password: "password",
+            instituteName: currentUser.currentInstitute
+        })
+        localStorage.setItem("users", JSON.stringify(users));
+
+        document.querySelector(".no-user-account").style.transform = "translateY(-150px)";
+        document.querySelector(".dash-section").style.pointerEvents = "auto";
+        document.querySelector(".dash-section").style.opacity = 1;
+        document.querySelector(currentClass).value = subjectName;
+        detailModel.style.display = "none";
+        document.querySelector(".subjectName").value = "";
+        document.querySelector(".subjectFaculty").value = "";
+        document.querySelector(".facultyEmail").value = "";
+    })
+
 }
