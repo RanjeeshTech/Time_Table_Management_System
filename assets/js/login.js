@@ -35,7 +35,8 @@ if (currentUser.length != 0) {
                     currentUserName: profile[i].username,
                     currentPassword: profile[i].password,
                     currentEmail: profile[i].email,
-                    currentInstitute: profile[i].instituteName
+                    currentInstitute: profile[i].instituteName,
+                    currentTables: profile[i].tables
                 };
                 localStorage.setItem("currentUser", JSON.stringify(user));
                 document.querySelector(".login-success").style.transform = "translateY(45px)";

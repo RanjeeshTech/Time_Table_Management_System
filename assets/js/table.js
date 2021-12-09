@@ -1,6 +1,8 @@
 const tableDetails = JSON.parse(localStorage.getItem("currentTable")) || [];
 const currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
 const users = JSON.parse(localStorage.getItem("users")) || [];
+const currentTableFacultys = JSON.parse(localStorage.getItem("currentTableFacultys")) || [];
+const tablesDone = JSON.parse(localStorage.getItem("tablesDone")) || [];
 
 if (currentUser.length == 0) {
     location.replace("./index.html");
@@ -8,37 +10,64 @@ if (currentUser.length == 0) {
     location.replace("./createTimeTable.html")
 } else {
     const days = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
-    console.log(tableDetails);
 
     const backBtn = document.querySelector(".backBtn");
     backBtn.addEventListener("click", () => {
         location.replace('./createTimeTable.html');
         localStorage.setItem("currentTable", JSON.stringify([]));
+        localStorage.setItem("currentTableFacultys", JSON.stringify([]));
     })
 
     const createbtn = document.querySelector(".createBtn");
-    createbtn.addEventListener("click", () => {
 
+    createbtn.addEventListener("click", () => {
+        let count = 0;
         const modelOpeners = document.querySelectorAll(".modelOpeners");
         modelOpeners.forEach(modelOpener => {
-            if (modelOpener.value == "" || modelOpener.value == null) {
+            if (modelOpener.value == "") {
                 document.querySelector(".no-fill").style.transform = "translateY(45px)";
                 setTimeout(() => {
                     document.querySelector(".no-fill").style.transform = "translateY(-100px)";
                 }, 2000);
-                return;
+                count++;
             }
-            //else part
-        })
 
-        // document.querySelector(".table-success").style.transform = "translateY(45px)";
-        // setTimeout(() => {
-        //     document.querySelector(".table-success").style.transform = "translateY(-100px)";
-        //     setTimeout(() => {
-        //         localStorage.setItem("currentTable", JSON.stringify([]));
-        //         location.replace("./createTimeTable.html");
-        //     }, 1000)
-        // }, 2000);
+        })
+        if (count != 0) {
+            return;
+        } else {
+            document.querySelector(".table-success").style.transform = "translateY(45px)";
+            setTimeout(() => {
+                document.querySelector(".table-success").style.transform = "translateY(-100px)";
+                setTimeout(() => {
+                    tablesDone.push({
+                        department: tableDetails.department,
+                        section: tableDetails.section,
+                        table: tableContainer.innerHTML
+                    })
+                    console.log(tableContainer.innerHTML);
+                    localStorage.setItem("tablesDone", JSON.stringify(tablesDone));
+                    for (let i = 0; i < currentTableFacultys.length; i++) {
+                        for (let j = 0; j < users.length; j++) {
+                            if (users[j].email == currentTableFacultys[i]) {
+                                (users[j].tables).push({
+                                    department: tableDetails.department,
+                                    section: tableDetails.section,
+                                    table: tableContainer.innerHTML
+                                })
+                                localStorage.setItem("users", JSON.stringify(users));
+                            }
+
+                        }
+                    }
+                    modelOpeners.forEach(modelOpener => {
+                        modelOpener.value = "";
+                    });
+                    // localStorage.setItem("currentTable", JSON.stringify([]));
+                    // location.replace("./createTimeTable.html");
+                }, 1000)
+            }, 2000);
+        }
     })
 
 
@@ -72,7 +101,6 @@ if (currentUser.length == 0) {
         interval2 = lunch + Math.floor(lunch / 2) + 1;
     }
 
-    console.log(interval2);
     var currentPeriod = 0;
 
     var allClasses = "";
@@ -223,10 +251,8 @@ if (currentUser.length == 0) {
         facultyEmail = document.querySelector(".facultyEmail").value;
 
         for (let i = 0; i < users.length; i++) {
-            console.log(users[i]);
             if (users[i].email == facultyEmail && users[i].instituteName == currentUser.currentInstitute) {
                 bool = true;
-                console.log(true);
                 break;
             }
         }
@@ -238,6 +264,20 @@ if (currentUser.length == 0) {
             detailModel.style.pointerEvents = "none";
         } else {
             document.querySelector(currentClass).value = subjectName;
+            let facultyCounter = 0;
+
+            for (let i = 0; i < currentTableFacultys.length; i++) {
+                if (currentTableFacultys[i] == facultyEmail) {
+                    facultyCounter++;
+                    break;
+                }
+            }
+            if (facultyCounter == 0) {
+                currentTableFacultys.push(facultyEmail);
+                localStorage.setItem("currentTableFacultys", JSON.stringify(currentTableFacultys));
+            } else {
+                facultyCounter == 0;
+            }
 
             detailModel.style.display = "none"
             tableContainer.style.pointerEvents = "auto";
@@ -268,9 +308,24 @@ if (currentUser.length == 0) {
             username: subjectFaculty,
             email: facultyEmail,
             password: "password",
-            instituteName: currentUser.currentInstitute
+            instituteName: currentUser.currentInstitute,
+            tables: []
         })
         localStorage.setItem("users", JSON.stringify(users));
+        let facultyCounter = 0;
+
+        for (let i = 0; i < currentTableFacultys.length; i++) {
+            if (currentTableFacultys[i] == facultyEmail) {
+                facultyCounter++;
+                break;
+            }
+        }
+        if (facultyCounter == 0) {
+            currentTableFacultys.push(facultyEmail);
+            localStorage.setItem("currentTableFacultys", JSON.stringify(currentTableFacultys));
+        } else {
+            facultyCounter == 0;
+        }
 
         document.querySelector(".no-user-account").style.transform = "translateY(-150px)";
         document.querySelector(".dash-section").style.pointerEvents = "auto";
