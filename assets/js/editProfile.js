@@ -15,13 +15,15 @@ resetbtn.addEventListener("click", () => {
 
 
 updatebtn.addEventListener("click", () => {
+
     for (let i = 0; i < users.length; i++) {
-        if (users[i].email == currentUser.email) {
+        if (users[i].email == currentUser.currentEmail) {
             users[i].username = changeUsername.value;
-            currentUser.changeUsername = changeUsername.value;
+            currentUser.currentUserName = changeUsername.value;
             break;
         }
     }
     localStorage.setItem("users", JSON.stringify(users));
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    changeUsername.value = "";
 })
