@@ -18,10 +18,18 @@ if (currentUser.length == 0) {
 
     const createbtn = document.querySelector(".createBtn");
     createbtn.addEventListener("click", () => {
-        // document.querySelector(".no-fill").style.transform = "translateY(45px)";
-        // setTimeout(() => {
-        //     document.querySelector(".no-fill").style.transform = "translateY(-100px)";
-        // }, 2000);
+
+        const modelOpeners = document.querySelectorAll(".modelOpeners");
+        modelOpeners.forEach(modelOpener => {
+            if (modelOpener.value == "" || modelOpener.value == null) {
+                document.querySelector(".no-fill").style.transform = "translateY(45px)";
+                setTimeout(() => {
+                    document.querySelector(".no-fill").style.transform = "translateY(-100px)";
+                }, 2000);
+                return;
+            }
+            //else part
+        })
 
         // document.querySelector(".table-success").style.transform = "translateY(45px)";
         // setTimeout(() => {
