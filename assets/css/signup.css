@@ -12,6 +12,10 @@
     font-family: 'Poppins', 'sans-serif';
 }
 
+html {
+    overflow: hidden;
+}
+
 body {
     background: linear-gradient(107.66deg, #FFFCF6 0%, #FFFFFF 100.55%);
     position: relative;
@@ -128,7 +132,7 @@ body::after {
     background: linear-gradient(152.04deg, #B7C7FF 0%, #FFFFFF 22.19%, #FFFFFF 34.43%, #FFFFFF 45.72%, #FFFFFF 56.46%, #FFFFFF 68.28%, #FFFFFF 80.52%, #FFDD9F 100%);
     box-shadow: 0px 0px 50px #B7C7FF;
     border-radius: 6px;
-    padding: 36px 20px;
+    padding: 36px 24px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -215,48 +219,174 @@ body::after {
     top: 34px;
 }
 
-.login-section .content .description p {
+.description p {
     font-size: 1.6rem;
     font-weight: 500;
 }
 
-.login-section .content .description h2 {
+.description h2 {
     font-size: 50px;
     font-weight: 600;
 }
 
-.login-section .content .description h2 span {
+.description h2 span {
     color: var(--gray);
     font-weight: 700;
 }
 
-.login-section .content .contact p {
+.contact p {
     font-size: 24px;
 }
 
-.login-section .content .description p span {
+.description p span {
     font-size: 30px;
 }
 
-.login-section .content .contact h4 {
+.contact h4 {
     font-size: 26px;
     font-weight: 600;
 }
 
-.login-section .content .contact-icons i {
+.contact-icons i {
     cursor: pointer;
     color: var(--darkYellow);
     text-shadow: 0px 0px 20px #D3DCFD;
 }
 
-.login-section .content .contact-icons i:nth-child(1):hover {
+.contact-icons i:nth-child(1):hover {
     color: rgb(37, 113, 255);
 }
 
-.login-section .content .contact-icons i:nth-child(2):hover {
+.contact-icons i:nth-child(2):hover {
     color: rgb(253, 0, 0);
 }
 
-.login-section .content .contact-icons i:nth-child(3):hover {
+.contact-icons i:nth-child(3):hover {
     color: rgb(88, 146, 255);
+}
+
+.small-contact {
+    display: none !important;
+}
+
+.small-contact-icons {
+    display: none !important;
+}
+
+@media (max-width: 992px) {
+    html {
+        overflow-y: visible;
+    }
+    body {
+        overflow: hidden;
+    }
+    .container {
+        min-height: 100vh;
+    }
+    .big-contact,
+    .big-contact-num {
+        display: none !important;
+    }
+    .small-contact {
+        display: flex !important;
+        flex-direction: column;
+    }
+    .small-contact-icons {
+        display: flex !important;
+    }
+    .container .login-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container .login-section {
+        text-align: center;
+        padding-top: 40px;
+    }
+    .container .login-section .content {
+        width: 80%;
+        padding: 0px 20px;
+    }
+    .login-section .content .description p {
+        font-size: 1.6rem;
+    }
+    .login-section .content .description h2 {
+        font-size: 40px;
+    }
+    .contact p {
+        font-size: 20px;
+    }
+    .contact h4 {
+        font-size: 24px;
+        font-weight: 600;
+    }
+    .contact-icons i {
+        font-size: 2.2rem;
+    }
+    .container .login-section .login-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .nav-section .text-nav {
+        display: none;
+    }
+    .container .login-section .content {
+        padding: 0px 20px;
+    }
+    .login-section .content .description p {
+        font-size: 1.4rem;
+    }
+    .login-section .content .description h2 {
+        font-size: 30px;
+    }
+    .contact p {
+        font-size: 16px;
+    }
+    .contact h4 {
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .contact-icons {
+        padding-top: 10px !important;
+    }
+    .contact-icons i {
+        font-size: 1.8rem;
+    }
+    .container .login-section .login-card {
+        padding-top: 20px;
+    }
+    .login-card .card {
+        padding: 26px 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0.1px solid #fff;
+    }
+    .login-card .card input {
+        padding: 5px 10px;
+        font-size: 15px;
+        border: none;
+        /* position: relative; */
+        outline: none;
+        background-color: inherit;
+    }
+    .header .nav-section button {
+        padding: 4px;
+        font-size: 1rem;
+    }
+    .login-button button {
+        padding: 4px 20px;
+        font-size: 14px;
+    }
+    .login-button {
+        padding-top: -20px !important;
+    }
+    .header .logo h4 {
+        font-size: 1.4rem;
+    }
+    .header {
+        padding: 16px 40px;
+    }
 }
