@@ -25,11 +25,18 @@ if (currentUser.length == 0) {
         const modelOpeners = document.querySelectorAll(".modelOpeners");
         modelOpeners.forEach(modelOpener => {
             if (modelOpener.value == "") {
+                modelOpener.style.border = "0.5px solid rgb(253, 0, 0)";
+                modelOpener.style.transition = "0.3s linear";
+                setTimeout(() => {
+                    modelOpener.style.border = "0.5px solid #ccc";
+                }, 2000);
                 document.querySelector(".no-fill").style.transform = "translateY(45px)";
                 setTimeout(() => {
                     document.querySelector(".no-fill").style.transform = "translateY(-100px)";
                 }, 2000);
                 count++;
+            } else {
+                modelOpener.style.border = "0.5px solid #ccc";
             }
 
         })
@@ -263,7 +270,7 @@ if (currentUser.length == 0) {
             document.querySelector(".dash-section").style.opacity = 0.5;
             detailModel.style.pointerEvents = "none";
         } else {
-            document.querySelector(currentClass).value = subjectName;
+            document.querySelector(currentClass).defaultValue = subjectName;
             let facultyCounter = 0;
 
             for (let i = 0; i < currentTableFacultys.length; i++) {
@@ -331,7 +338,7 @@ if (currentUser.length == 0) {
         document.querySelector(".dash-section").style.pointerEvents = "auto";
         document.querySelector(".dash-section").style.opacity = 1;
         detailModel.style.pointerEvents = "auto";
-        document.querySelector(currentClass).value = subjectName;
+        document.querySelector(currentClass).defaultValue = subjectName;
         document.querySelector(".subjectName").value = "";
         document.querySelector(".subjectFaculty").value = "";
         document.querySelector(".facultyEmail").value = "";
