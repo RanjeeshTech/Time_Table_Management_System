@@ -1,3 +1,4 @@
+localStorage.setItem("currentTableFacultys", JSON.stringify([]));
 const tableDetails = JSON.parse(localStorage.getItem("currentTable")) || [];
 const currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
 const users = JSON.parse(localStorage.getItem("users")) || [];
@@ -56,7 +57,7 @@ if (currentUser.length == 0) {
                     localStorage.setItem("tablesDone", JSON.stringify(tablesDone));
                     for (let i = 0; i < currentTableFacultys.length; i++) {
                         for (let j = 0; j < users.length; j++) {
-                            if (users[j].email == currentTableFacultys[i]) {
+                            if (users[j].email == currentTableFacultys[i].facultyEmail) {
                                 (users[j].tables).push({
                                     department: tableDetails.department,
                                     section: tableDetails.section,
@@ -157,7 +158,7 @@ if (currentUser.length == 0) {
                 if (i == 0) {
                     tablePeriod += `<td><input type="text" class="form-control" disabled style="background-color: #fff; text-align:center; font-weight:700; padding:0 !important" value="${startTime}:${mins} ${amORpm}"></td>`;
                 } else {
-                    tablePeriod += `<td><input type="text" id="name-${currentPeriod}${i}" class="form-control modelOpeners" disabled style="cursor: pointer; background-color: #fff;" placeholder="Click to Add Subject..." data-time="${startTime}:${mins} ${amORpm}" data-classTime=${tableDetails.periodTiming}></td>`;
+                    tablePeriod += `<td><input type="text" id="name-${currentPeriod}${i}" class="form-control modelOpeners" disabled style="cursor: pointer; background-color: #fff;" placeholder="Click to Add Subject..." data-time="${startTime}:${mins} ${amORpm}" data-classtime=${tableDetails.periodTiming} data-day=${days[i-1]}></td>`;
                 }
             }
             if (classTiming % 60 == 0) {
@@ -251,11 +252,37 @@ if (currentUser.length == 0) {
     var subjectName = "";
     var subjectFaculty = "";
     var facultyEmail = "";
+    var classTimeDetails = {};
+    var checkerInput;
+    var capitalized;
     const addFaculty = (e) => {
         e.preventDefault();
         subjectName = document.querySelector(".subjectName").value;
         subjectFaculty = document.querySelector(".subjectFaculty").value;
         facultyEmail = document.querySelector(".facultyEmail").value;
+        console.log(document.querySelector(currentClass));
+        checkerInput = document.querySelector(currentClass);
+
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].email == facultyEmail) {
+                for (let j = 0; j < users[i].classTime.length; j++) {
+                    if (users[i].classTime[j].day == checkerInput.dataset.day && users[i].classTime[j].time == checkerInput.dataset.time) {
+                        document.querySelector(".teacherNotFree").style.transform = "translateY(45px)";
+                        setTimeout(() => {
+                            document.querySelector(".teacherNotFree").style.transform = "translateY(-150px)";
+                        }, 3000);
+                        capitalized = subjectFaculty.charAt(0).toUpperCase() + subjectFaculty.slice(1);
+                        document.querySelector(".notFreeTeacherName").innerHTML = capitalized;
+                        document.querySelector(".subjectName").value = "";
+                        document.querySelector(".subjectFaculty").value = "";
+                        document.querySelector(".facultyEmail").value = "";
+
+                        return;
+                        console.log(true);
+                    }
+                }
+            }
+        }
 
         for (let i = 0; i < users.length; i++) {
             if (users[i].email == facultyEmail && users[i].instituteName == currentUser.currentInstitute) {
@@ -273,26 +300,47 @@ if (currentUser.length == 0) {
             document.querySelector(currentClass).defaultValue = subjectName;
             let facultyCounter = 0;
 
+            classTimeDetails = {
+                time: document.querySelector(currentClass).dataset.time,
+                day: document.querySelector(currentClass).dataset.day,
+                classTiming: document.querySelector(currentClass).dataset.classtime
+            };
+            for (let k = 0; k < users.length; k++) {
+                if (users[k].email == facultyEmail) {
+                    users[k].classTime.push(classTimeDetails);
+                }
+            }
+            localStorage.setItem("users", JSON.stringify(users));
+
             for (let i = 0; i < currentTableFacultys.length; i++) {
-                if (currentTableFacultys[i] == facultyEmail) {
+                if (currentTableFacultys[i].facultyEmail == facultyEmail) {
+                    currentTableFacultys[i].classTimes.push({
+                        time: document.querySelector(currentClass).dataset.time,
+                        day: document.querySelector(currentClass).dataset.day,
+                        classTiming: document.querySelector(currentClass).dataset.classtime
+                    })
+                    localStorage.setItem("currentTableFacultys", JSON.stringify(currentTableFacultys));
                     facultyCounter++;
                     break;
                 }
             }
             if (facultyCounter == 0) {
-                currentTableFacultys.push(facultyEmail);
+
+                currentTableFacultys.push(classTimeDetails);
                 localStorage.setItem("currentTableFacultys", JSON.stringify(currentTableFacultys));
             } else {
                 facultyCounter == 0;
             }
 
-            detailModel.style.display = "none"
+
             tableContainer.style.pointerEvents = "auto";
+            document.querySelector(".dash-section").style.pointerEvents = "auto";
             document.querySelector(".dash-section").style.overflow = "scroll";
             document.querySelector(".dash-section").style.opacity = 1;
             document.querySelector(".subjectName").value = "";
             document.querySelector(".subjectFaculty").value = "";
             document.querySelector(".facultyEmail").value = "";
+            detailModel.style.display = "none";
         }
         bool = false;
     }
@@ -306,7 +354,6 @@ if (currentUser.length == 0) {
     noCreate.addEventListener("click", () => {
         document.querySelector(".no-user-account").style.transform = "translateY(-150px)";
         document.querySelector(".dash-section").style.pointerEvents = "auto";
-        document.querySelector(".dash-section").style.opacity = 1;
         detailModel.style.pointerEvents = "auto";
     })
 
@@ -316,32 +363,63 @@ if (currentUser.length == 0) {
             email: facultyEmail,
             password: "password",
             instituteName: currentUser.currentInstitute,
-            tables: []
+            tables: [],
+            classTime: []
         })
         localStorage.setItem("users", JSON.stringify(users));
         let facultyCounter = 0;
 
+        classTimeDetails = {
+            time: document.querySelector(currentClass).dataset.time,
+            day: document.querySelector(currentClass).dataset.day,
+            classTiming: document.querySelector(currentClass).dataset.classtime
+        };
+        for (let k = 0; k < users.length; k++) {
+            if (users[k].email == facultyEmail) {
+                users[k].classTime.push(classTimeDetails);
+            }
+        }
+        localStorage.setItem("users", JSON.stringify(users));
+
         for (let i = 0; i < currentTableFacultys.length; i++) {
-            if (currentTableFacultys[i] == facultyEmail) {
+            if (currentTableFacultys[i].facultyEmail == facultyEmail) {
+                currentTableFacultys[i].classTimes.push({
+                    time: document.querySelector(currentClass).dataset.time,
+                    day: document.querySelector(currentClass).dataset.day,
+                    classTiming: document.querySelector(currentClass).dataset.classtime
+                })
+                localStorage.setItem("currentTableFacultys", JSON.stringify(currentTableFacultys));
                 facultyCounter++;
                 break;
             }
         }
         if (facultyCounter == 0) {
-            currentTableFacultys.push(facultyEmail);
+            classTimeDetails = {
+                facultyEmail: facultyEmail,
+                classTimes: [{
+                    time: document.querySelector(currentClass).dataset.time,
+                    day: document.querySelector(currentClass).dataset.day,
+                    classTiming: document.querySelector(currentClass).dataset.classtime
+                }]
+            };
+            console.log(classTimeDetails);
+            currentTableFacultys.push(classTimeDetails);
             localStorage.setItem("currentTableFacultys", JSON.stringify(currentTableFacultys));
         } else {
             facultyCounter == 0;
         }
 
         document.querySelector(".no-user-account").style.transform = "translateY(-150px)";
-        document.querySelector(".dash-section").style.pointerEvents = "auto";
+
         document.querySelector(".dash-section").style.opacity = 1;
         detailModel.style.pointerEvents = "auto";
         document.querySelector(currentClass).defaultValue = subjectName;
         document.querySelector(".subjectName").value = "";
         document.querySelector(".subjectFaculty").value = "";
         document.querySelector(".facultyEmail").value = "";
+        detailModel.style.display = "none";
+        document.querySelector(".dash-section").style.pointerEvents = "auto";
+        document.querySelector(".tableContainer").style.pointerEvents = "auto";
     })
 
 }

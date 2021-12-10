@@ -26,7 +26,8 @@ if (currentUser.length != 0) {
             email: document.querySelector(".email").value,
             password: document.querySelector(".password").value,
             instituteName: document.querySelector(".instituteName").value,
-            tables: []
+            tables: [],
+            classTime: []
         });
 
         localStorage.setItem("users", JSON.stringify(profile));
