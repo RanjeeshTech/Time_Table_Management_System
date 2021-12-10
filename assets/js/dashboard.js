@@ -30,5 +30,5 @@ container.innerHTML = contains;
 container.addEventListener("click", (e) => {
     if (!e.target.classList.contains("black") && !e.target.classList.contains("black-para")) return;
     localStorage.setItem("currentFacultyTable", e.target.dataset.key);
-    location.replace("./timeTableViewer.html")
+    location.href = './timeTableViewer.html';
 })

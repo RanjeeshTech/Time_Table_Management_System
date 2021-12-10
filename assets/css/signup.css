@@ -107,9 +107,12 @@ body::after {
     min-height: 90vh;
 }
 
+.container .login-section .content {
+    padding: 0px 100px;
+}
+
 .container .login-section>div {
     display: flex;
-    padding: 0px 100px;
 }
 
 .container .login-section .content {
