@@ -157,7 +157,7 @@ if (currentUser.length == 0) {
                 if (i == 0) {
                     tablePeriod += `<td><input type="text" class="form-control" disabled style="background-color: #fff; text-align:center; font-weight:700; padding:0 !important" value="${startTime}:${mins} ${amORpm}"></td>`;
                 } else {
-                    tablePeriod += `<td><input type="text" id="name-${currentPeriod}${i}" class="form-control modelOpeners" disabled style="cursor: pointer; background-color: #fff;" placeholder="Click to Add Subject..."></td>`;
+                    tablePeriod += `<td><input type="text" id="name-${currentPeriod}${i}" class="form-control modelOpeners" disabled style="cursor: pointer; background-color: #fff;" placeholder="Click to Add Subject..." data-time="${startTime}:${mins} ${amORpm}" data-classTime=${tableDetails.periodTiming}></td>`;
                 }
             }
             if (classTiming % 60 == 0) {
