@@ -21,6 +21,17 @@ if (currentUser.length != 0) {
     signupForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
+        for (let i = 0; i < profile.length; i++) {
+            if (document.querySelector(".email").value == profile[i].email) {
+                alert("User Already Exists With This Email");
+                document.querySelector(".username").value = "";
+                document.querySelector(".email").value = "";
+                document.querySelector(".password").value = "";
+                document.querySelector(".instituteName").value = "";
+                return;
+            }
+        }
+
         profile.push({
             username: document.querySelector(".username").value,
             email: document.querySelector(".email").value,

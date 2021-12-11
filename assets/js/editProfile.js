@@ -8,6 +8,11 @@ if (currentUser.length == 0) {
 const changeUsername = document.querySelector(".changeUsername");
 const resetbtn = document.querySelector(".resetbtn");
 const updatebtn = document.querySelector(".updatebtn");
+const backbtn = document.querySelector(".backbtn");
+
+backbtn.addEventListener("click", () => {
+    location.href = "./dashboard.html";
+})
 
 resetbtn.addEventListener("click", () => {
     changeUsername.value = "";
