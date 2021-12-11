@@ -23,11 +23,14 @@ if (currentUser.length != 0) {
 
         for (let i = 0; i < profile.length; i++) {
             if (document.querySelector(".email").value == profile[i].email) {
-                alert("User Already Exists With This Email");
+                document.querySelector(".yes-user").style.transform = "translateY(45px)";
                 document.querySelector(".username").value = "";
                 document.querySelector(".email").value = "";
                 document.querySelector(".password").value = "";
                 document.querySelector(".instituteName").value = "";
+                setTimeout(() => {
+                    document.querySelector(".yes-user").style.transform = "translateY(-100px)";
+                }, 2000);
                 return;
             }
         }
@@ -42,12 +45,20 @@ if (currentUser.length != 0) {
         });
 
         localStorage.setItem("users", JSON.stringify(profile));
+        document.querySelector(".create-success").style.transform = "translateY(45px)";
         document.querySelector(".username").value = "";
         document.querySelector(".email").value = "";
         document.querySelector(".password").value = "";
         document.querySelector(".instituteName").value = "";
+        document.querySelector(".username").disabled = true;
+        document.querySelector(".email").disabled = true;
+        document.querySelector(".password").disabled = true;
+        document.querySelector(".instituteName").disabled = true;
+        setTimeout(() => {
+            document.querySelector(".create-success").style.transform = "translateY(-100px)";
+            location.replace("./index.html");
+        }, 2000);
 
-        location.replace("./index.html");
 
     });
 }

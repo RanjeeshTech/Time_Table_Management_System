@@ -8,7 +8,9 @@
 .reset-success,
 .no-fill,
 .table-success,
-.teacherNotFree {
+.teacherNotFree,
+.yes-user,
+.create-success {
     position: absolute;
     font-size: 1.4rem;
     padding: 10px 100px;
@@ -24,7 +26,9 @@
 
 .login-success,
 .reset-success,
-.table-success {
+.table-success,
+.yes-user,
+.create-success {
     background-color: #e4ffe6;
 }
 
