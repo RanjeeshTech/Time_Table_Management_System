@@ -71,8 +71,8 @@ if (currentUser.length == 0) {
                     modelOpeners.forEach(modelOpener => {
                         modelOpener.value = "";
                     });
-                    // localStorage.setItem("currentTable", JSON.stringify([]));
-                    // location.replace("./createTimeTable.html");
+                    localStorage.setItem("currentTable", JSON.stringify([]));
+                    location.replace("./createTimeTable.html");
                 }, 1000)
             }, 2000);
         }
@@ -325,7 +325,14 @@ if (currentUser.length == 0) {
                 }
             }
             if (facultyCounter == 0) {
-
+                classTimeDetails = {
+                    facultyEmail: facultyEmail,
+                    classTimes: [{
+                        time: document.querySelector(currentClass).dataset.time,
+                        day: document.querySelector(currentClass).dataset.day,
+                        classTiming: document.querySelector(currentClass).dataset.classtime
+                    }]
+                };
                 currentTableFacultys.push(classTimeDetails);
                 localStorage.setItem("currentTableFacultys", JSON.stringify(currentTableFacultys));
             } else {
